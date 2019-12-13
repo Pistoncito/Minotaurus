@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         timeMouseDown = 0.0f;
         latestTimeMouseDown = 0.0f;
         timeMouseUp = 0.0f;
-        SetPlaneDistance();
         FullScreenButton();
     }
     private void FullScreenButton()
@@ -52,12 +51,8 @@ public class GameManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         Canvas myCanvas = GetComponent<Canvas>();
         myCanvas.planeDistance = Camera.main.nearClipPlane + 0.01f;
         RectTransform r = transform.GetChild(0).GetComponent<RectTransform>();
-        r.sizeDelta = myCanvas.pixelRect.size * 2.0f;
+        r.sizeDelta *= myCanvas.pixelRect.size * 1.0f;
         //r.size = myCanvas.pixelRect.size;
-    }
-    private void SetPlaneDistance()
-    {
-       // this.transform.GetComponent<GrapicRaycaster>();
     }
     public void OnPointerDown(PointerEventData eventData)
     {

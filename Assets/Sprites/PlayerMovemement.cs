@@ -14,8 +14,8 @@ public class PlayerMovemement : MonoBehaviour
     #region AttackVariables
     [Range(0.01f, 1.0f)]
     public float inputAttackTime;
-    private bool isAttacking;
     #endregion
+
     private float maxZ,minZ;
     Animator anim;
     SpriteRenderer sr;
@@ -33,10 +33,7 @@ public class PlayerMovemement : MonoBehaviour
         rb = this.transform.GetComponent<Rigidbody>();
         myGameManager = GameManager.Instance_;
 
-        //Attacking
-        isAttacking = false;
         StartCoroutine(Move());
-        StartCoroutine(Attack());
     }
 
     // Update is called once per frame
@@ -44,74 +41,56 @@ public class PlayerMovemement : MonoBehaviour
     {
  
     }
-    IEnumerator CheckAttackEnd()
+  
+    protected bool Attack()
     {
-        while(anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+        if (myGameManager.timeMouseUp < 0.1f)
         {
-            yield return null;
+            //Atacar
+            anim.Play("Attack");
+            return true;
         }
-        isAttacking = false;
+        return false;
     }
 
-    IEnumerator Attack()
-    {
-        while(true)
-        {
-            if(!isAttacking)
-            {
-                if (myGameManager.timeMouseUp < 0.1f)
-                {
-                    //Atacar
-                    anim.Play("Attack");
-                    isAttacking = true;
-                    StartCoroutine(CheckAttackEnd());
-                }
-            }
-
-            yield return null;
-        }
-    }
     IEnumerator Move()
     {
         while(true)
         {
-            if(true)
+            Attack();
+            float horiz = Input.GetAxis("Horizontal");
+            float vert = Input.GetAxis("Vertical");
+            if (moveWithPosition)
             {
-                float horiz = Input.GetAxis("Horizontal");
-                float vert = Input.GetAxis("Vertical");
-                if (moveWithPosition)
-                {
-                    //Movimiento horizontal
-                    Vector3 pos = this.transform.localPosition;
-                    pos.x += horiz * deltaPos * Time.deltaTime;
-                    //Movimiento vertical
-                    pos.z += vert * deltaPos * Time.deltaTime;
-                    //pos.z = Mathf.Clamp(pos.y, minZ, maxZ);
-                    this.transform.position = pos;
+                //Movimiento horizontal
+                Vector3 pos = this.transform.localPosition;
+                pos.x += horiz * deltaPos * Time.deltaTime;
+                //Movimiento vertical
+                pos.z += vert * deltaPos * Time.deltaTime;
+                //pos.z = Mathf.Clamp(pos.y, minZ, maxZ);
+                this.transform.position = pos;
 
-                }
-                else
-                {
-                    Vector3 vel = rb.velocity;
-                    vel.x = horiz * moveSpeed * Time.deltaTime;
-                    vel.z = vert * moveSpeed * Time.deltaTime;
-                    rb.velocity = vel;
-                }
-                if (horiz != 0.0f || vert != 0.0f)
-                {
-                    anim.SetBool("walking", true);
-                }
-                else
-                {
-                    anim.SetBool("walking", false);
-                }
-
-                if ((horiz < 0.0f && !sr.flipX) || (horiz > 0.0f && sr.flipX))
-                {
-                    sr.flipX = !sr.flipX;
-                }
             }
-            
+            else
+            {
+                Vector3 vel = rb.velocity;
+                vel.x = horiz * moveSpeed * Time.deltaTime;
+                vel.z = vert * moveSpeed * Time.deltaTime;
+                rb.velocity = vel;
+            }
+            if (horiz != 0.0f || vert != 0.0f)
+            {
+                anim.SetBool("walking", true);
+            }
+            else
+            {
+                anim.SetBool("walking", false);
+            }
+
+            if ((horiz < 0.0f && !sr.flipX) || (horiz > 0.0f && sr.flipX))
+            {
+                sr.flipX = !sr.flipX;
+            }
             yield return null;
         }
     }
