@@ -64,13 +64,20 @@
   <ItemGroup>
     <Compile Include="Assets\foo.cs" />
     <Compile Include="Assets\scripts\menuController.cs" />
+    <Compile Include="Assets\scripts\ScoreBoardController.cs" />
     <Compile Include="Assets\Sprites\CameraBehaviour.cs" />
     <Compile Include="Assets\Sprites\CollidersManager.cs" />
     <Compile Include="Assets\Sprites\GameManager.cs" />
     <Compile Include="Assets\Sprites\PlayerMovemement.cs" />
     <Compile Include="Assets\Sprites\ScenarioManager.cs" />
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
@@ -80,12 +87,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
