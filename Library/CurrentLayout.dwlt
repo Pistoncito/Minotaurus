@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 883, y: 494}
   m_MaxSize: {x: 18004, y: 14044}
   vertical: 0
-  controlID: 11906
+  controlID: 859
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 408, y: 494}
   m_MaxSize: {x: 10004, y: 14044}
   vertical: 1
-  controlID: 11861
+  controlID: 865
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_MinSize: {x: 408, y: 222}
   m_MaxSize: {x: 8008, y: 4022}
   vertical: 0
-  controlID: 11862
+  controlID: 866
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -410,9 +410,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 1c300000
       m_LastClickedID: 0
-      m_ExpandedIDs: ec87ffff228affff628affff8e8affffba8affffe68affff1e8bffff988bfffffe8bffff668cffff108fffff5290ffffb490ffff5ac7ffff3ac8ffff66c8ffff36f8ffffacfaffff8cfbffff143000006c300000e4300000f0300000fc3e0000843f0000fc45000008460000
+      m_ExpandedIDs: 30fbffffec310000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -598,20 +598,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Sprites/Backgrounds/Bg0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Sprites/Backgrounds/Bg0
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "D:\\DocumentosD\\1. Universidad\\4\xBA\\aplicaciones moviles\\MinotauroGame\\Minotaurus"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b22c0000
-    m_LastClickedID: 11442
-    m_ExpandedIDs: 00000000c22a0000902d0000ca2e000000ca9a3b
+    m_SelectedIDs: 3e310000
+    m_LastClickedID: 12606
+    m_ExpandedIDs: 00000000242d00004a2e0000fe2f00003e31000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -639,7 +639,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c22a0000902d0000ca2e000000ca9a3b
+    m_ExpandedIDs: 00000000242d0000fe2f00003e31000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
