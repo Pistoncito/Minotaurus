@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public SphereCollider axeCollider;
     public GameObject floor;
-    [Range(1.0f, 50.0f)]
+    [Range(1.0f, 900.0f)]
     public float moveSpeed = 65.0f;
     [Range(1.0f, 10.0f)]
     public float deltaPos = 1.0f;
@@ -63,6 +64,11 @@ public class PlayerMovement : MonoBehaviour
         if ((horiz < 0.0f && !sr.flipX) || (horiz > 0.0f && sr.flipX))
         {
             sr.flipX = !sr.flipX;
+            //Girar el collider
+
+            Vector3 aux = axeCollider.transform.localPosition;
+            aux.x *= -1.0f;
+            axeCollider.transform.localPosition = aux;
         }
 
     }

@@ -168,7 +168,9 @@ public class GameManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void ResizePlayer()
     {
-        BoxCollider bc = player.transform.GetChild(0).GetComponent<BoxCollider>();
+        int childIndex = player.transform.childCount - 1;
+        Debug.Log("childIndex: " + childIndex);
+        BoxCollider bc = player.transform.GetChild(childIndex).GetComponent<BoxCollider>();
         bc.size -= new Vector3(0.2f * bc.size.x,0,0);
         bc.center += new Vector3(0,0, bc.size.z * 0.5f);
     }
