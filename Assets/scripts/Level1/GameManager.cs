@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 public class GameManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [HideInInspector]
@@ -37,6 +39,10 @@ public class GameManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public float latestTimeMouseDown;
     [HideInInspector]
     public float timeMouseUp;
+
+    //Score
+    [SerializeField] private Text text_points;
+    private int points;
 
     Vector3 playerDirection = Vector3.zero;
     public void OnReleaseMoveCallback(int move)
@@ -96,6 +102,10 @@ public class GameManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         latestTimeMouseDown = 0.0f;
         timeMouseUp = 0.0f;
         FullScreenButton();
+
+        //--------------Score al inicio------------------
+        points = 0;
+        text_points.text = points.ToString();
     }
     private void FullScreenButton()
     {
