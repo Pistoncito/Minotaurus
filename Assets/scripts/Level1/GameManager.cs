@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [HideInInspector]
+    public bool endOfGame = false;
+    [HideInInspector]
     public static GameManager Instance_
     {
         get

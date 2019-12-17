@@ -16,16 +16,23 @@ public class Enemy : MonoBehaviour
     public float attack_range;
 
     [HideInInspector]
-    EnemiesSpawner spawnerReference;
+    public EnemiesSpawner spawnerReference;
 
     private Animator anim;
     private Rigidbody rb;
+    private SpriteRenderer sr;
     private bool alive;
     // Start is called before the first frame update
     void Start()
     {
+  
+      
+    }
+    private void OnEnable()
+    {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        sr = GetComponent<SpriteRenderer>();
         alive = true;
         StartCoroutine(Behaviour());
     }
@@ -35,8 +42,15 @@ public class Enemy : MonoBehaviour
     {
         
     }
+    IEnumerator SuicideAfter(float secs)
+    {
+        yield return new WaitForSeconds(secs);
+        alive = false;
+    }
+
     IEnumerator Behaviour()
     {
+       StartCoroutine(SuicideAfter(3.0f));
        GameObject player = GameManager.Instance_.player;
        while(alive)
         {
@@ -47,7 +61,9 @@ public class Enemy : MonoBehaviour
             else
             {
                 MoveTowards(player.transform.position);
+                CheckAnimation();
             }
+       
             yield return null;
         }
         StartCoroutine(Die());
@@ -63,10 +79,16 @@ public class Enemy : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         anim.Play("Die");
+        while (!anim.GetCurrentAnimatorStateInfo(0).IsName("Die"))
+        {
+            yield return null;
+        }
+
         while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
         {
             yield return null;
         }
+        Debug.Log("MUERE " + this.name);
         //yield return (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f);
         spawnerReference.RecycleEnemy(this.gameObject);
     }
@@ -76,9 +98,33 @@ public class Enemy : MonoBehaviour
         rb.velocity = Vector3.zero;
         anim.Play("Attack");
     }
-
     void CheckAnimation()
     {
+        float horiz, vert;
+        horiz = rb.velocity.x;
+        vert = rb.velocity.z;
 
+        if (horiz != 0.0f || vert != 0.0f)
+        {
+            anim.SetBool("walking", true);
+        }
+        else
+        {
+            anim.SetBool("walking", false);
+        }
+
+        if ((horiz < 0.0f && !sr.flipX) || (horiz > 0.0f && sr.flipX))
+        {
+            sr.flipX = !sr.flipX;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject == GameManager.Instance_.player)
+        {
+            //daña al jugador
+            GameManager.Instance_.player.GetComponent<PlayerMovement>().DealDamage(dmg_dealt);
+        }
     }
 }

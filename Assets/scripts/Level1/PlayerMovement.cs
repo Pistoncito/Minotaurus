@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public UnityEngine.UI.Image hpBar;
     public SphereCollider axeCollider;
     public GameObject floor;
     [Range(1.0f, 900.0f)]
@@ -15,6 +16,11 @@ public class PlayerMovement : MonoBehaviour
     #region AttackVariables
     [Range(0.01f, 1.0f)]
     public float inputAttackTime;
+    #endregion
+
+    #region HpVars
+    public float maxHp;
+    private float currentHp;
     #endregion
 
     private float maxZ,minZ;
@@ -33,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
         sr = this.transform.GetComponent<SpriteRenderer>();
         rb = this.transform.GetComponent<Rigidbody>();
         myGameManager = GameManager.Instance_;
+
+        //HP vars
+        currentHp = maxHp;
 
         //StartCoroutine(Move());
         StartCoroutine(BehaviourOnMobile());
@@ -78,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator BehaviourOnMobile()
     {
-        while(true)
+        while(!GameManager.Instance_.endOfGame)
         {
             
             //Priorizar atacar
@@ -95,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
             CheckAnimationDisplay();
             yield return null;
         }
+        rb.velocity = Vector3.zero;
     }
     /*
     protected bool Attack()
@@ -150,4 +160,52 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     */
+
+    public void DealDamage(float dmg)
+    {
+        //StopCoroutine(UpdateHp(dmg));//La paro por si estaba ejecutandose ya una
+        StartCoroutine(UpdateHp(dmg));
+        CheckIfDie();
+    }
+
+    IEnumerator UpdateHp(float dmg)
+    {
+        float lastPercentage = currentHp/maxHp;
+        currentHp -= dmg;
+        float currentPercentage = currentHp / maxHp;
+        float inTime = 1.0f;
+        float timer = 0.0f;
+        while(timer < inTime)
+        {
+            timer += Time.deltaTime;
+            float percentageDisplay = Mathf.Lerp(lastPercentage, currentPercentage, timer);
+            hpBar.fillAmount = percentageDisplay;
+            yield return null;
+        }
+    }
+
+    private void CheckIfDie()
+    {
+        if(currentHp <= 0.0f)
+        {
+            StartCoroutine(Die());
+        }
+    }
+    private IEnumerator Die()
+    {
+        rb.velocity = Vector3.zero;
+        anim.Play("Die");
+        while (!anim.GetCurrentAnimatorStateInfo(0).IsName("Die"))
+        {
+            yield return null;
+        }
+
+        while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+        {
+            yield return null;
+        }
+        GameManager.Instance_.endOfGame = true;
+    }
+
+
 }

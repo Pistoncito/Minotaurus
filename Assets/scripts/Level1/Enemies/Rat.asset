@@ -16,7 +16,7 @@ MonoBehaviour:
   dmg_dealt: 2
   score_given: 100
   hp: 3
-  speed: 100
-  attack_range: 0.3
+  speed: 30
+  attack_range: 0.5
   sprite: {fileID: 6305994178327142450, guid: 8ebed721ea748ef4ebaa4e45e4213a70, type: 3}
   anim: {fileID: 22100000, guid: c9f411b9234354d4eb9977a6179adc7d, type: 2}

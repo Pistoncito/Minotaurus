@@ -13,15 +13,17 @@ public class HealthBar : MonoBehaviour
     {
         healthBar = transform.Find("health").GetComponent<Image>();
 
-        healthBar.fillAmount = 0.0f;
+        healthBar.fillAmount = 1.0f;
     }
 
     private void Update()
     {
+        /*
         healthBar.fillAmount = hp;
 
         hp += 1.0f * Time.deltaTime;
         hp = Mathf.Clamp(hp, 0.0f, HP_MAX);
+        */
 
     }
 }
