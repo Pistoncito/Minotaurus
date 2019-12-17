@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Worm
+  m_Controller: {fileID: 9100000, guid: e8c4353449033e04d94ab2daa18296ef, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e80f9831f3d17a543935ae1884120cdd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2fff98d993fabbb4687173deec3cc603, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d228d12cd9892344d836f4f956212d71, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3ce185df00026b447bd43214a610e463, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ab95aba17d12964438ef85766a8a0077, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6a442ee8a1d56b044933a97ad3bcca6a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5e5ce4673ff4f2941b48dcd87d32c32c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8d8d2b4fdaa03044aac51beb471521e3, type: 2}

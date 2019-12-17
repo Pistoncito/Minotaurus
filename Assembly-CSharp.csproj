@@ -63,9 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\audio.cs" />
-    <Compile Include="Assets\foo.cs" />
+    <Compile Include="Assets\EnemiesSpawner.cs" />
+    <Compile Include="Assets\scripts\Level1\AxeCollider.cs" />
     <Compile Include="Assets\scripts\Level1\CameraBehaviour.cs" />
     <Compile Include="Assets\scripts\Level1\CollidersManager.cs" />
+    <Compile Include="Assets\scripts\Level1\Enemies\Enemy.cs" />
+    <Compile Include="Assets\scripts\Level1\Enemies\EnemyScriptable.cs" />
     <Compile Include="Assets\scripts\Level1\GameManager.cs" />
     <Compile Include="Assets\scripts\Level1\HealthBar.cs" />
     <Compile Include="Assets\scripts\Level1\PlayerMovement.cs" />
@@ -74,22 +77,22 @@
     <Compile Include="Assets\scripts\Menu\ScoreBoardController.cs" />
     <None Include="Assets\Fonts\OFL.txt" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/Minotaurus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/Minotaurus/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/Minotaurus/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/Minotaurus/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/Minotaurus/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/Minotaurus/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -274,17 +277,14 @@
     <Reference Include="nunit.framework">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Vuforia.UnityExtensions">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/Minotaurus/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/Minotaurus/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>D:/DocumentosD/1. Universidad/4º/aplicaciones moviles/MinotauroGame/Minotaurus/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/Minotaurus/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
