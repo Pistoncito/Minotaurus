@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class menuController : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class menuController : MonoBehaviour
     void Update()
     {
         
-    }
+    }        
 
     public void change_scene(int scene)
     {
