@@ -30,7 +30,8 @@ public class EnemiesSpawner : MonoBehaviour
 
     IEnumerator SpawnRandom()
     {
-        while(true)
+        yield return new WaitForSeconds(3.0f);
+        while (true)
         {
             AddToEnemiesSpawned(SpawnEnemy(Random.Range(0, enemiesKind.Length)));
             yield return new WaitForSeconds(5.0f);
@@ -94,6 +95,9 @@ public class EnemiesSpawner : MonoBehaviour
         eScript.attack_range = eScriptable.attack_range;
         enemyInstance.name = eScriptable.name;
         eScript.spawnerReference = this;
+
+        //Valor del tag para las colisiones mas sencillas con el hacha
+        enemyInstance.tag = "enemy";
         //Valores de componente SpriteRenderer
         enemyInstance.GetComponent<SpriteRenderer>().sprite = eScriptable.sprite;
 

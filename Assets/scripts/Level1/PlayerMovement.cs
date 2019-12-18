@@ -14,8 +14,13 @@ public class PlayerMovement : MonoBehaviour
     public bool moveWithPosition;
     [Header("Attack variables")]
     #region AttackVariables
+    [Range(1.0f, 10.0f)]
+    public float attack_dmg;
     [Range(0.01f, 1.0f)]
     public float inputAttackTime;
+
+    [HideInInspector]
+    public BoxCollider playerCollider;
     #endregion
 
     #region HpVars
@@ -52,9 +57,9 @@ public class PlayerMovement : MonoBehaviour
     {
  
     }
-    public bool atacking = false;
+    public bool attacking = false;
     public Vector3 moveDirection = Vector3.zero;
-
+    public bool playerDie = false;
     private void CheckAnimationDisplay()
     {
         float horiz, vert;
@@ -83,15 +88,41 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Attack()
     {
-        anim.Play("Attack");
+        if (!attacking && !playerDie)
+        {
+            anim.Play("Attack");
+            StartCoroutine(AxeHit());
+        }
     }
+
+    IEnumerator AxeHit()
+    {
+
+        while(!anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            yield return null;
+        }
+        bool axeActive = false;
+        do
+        {
+            yield return null;
+            float normTime = anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            if (normTime > 0.5f && !axeActive)
+            {
+                //Activo axe
+                axeCollider.gameObject.SetActive(true);
+                axeActive = true;
+            }
+        } while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.95f);
+        axeCollider.gameObject.SetActive(false);
+        attacking = false;
+    }
+
     IEnumerator BehaviourOnMobile()
     {
-        while(!GameManager.Instance_.endOfGame)
+        while(!playerDie)
         {
             
-            //Priorizar atacar
-
             if(moveWithPosition)
             {
                 Vector3 pos = this.transform.localPosition;
@@ -163,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void DealDamage(float dmg)
     {
-        //StopCoroutine(UpdateHp(dmg));//La paro por si estaba ejecutandose ya una
+        StopCoroutine(UpdateHp(dmg));//La paro por si estaba ejecutandose ya una
         StartCoroutine(UpdateHp(dmg));
         CheckIfDie();
     }
@@ -191,9 +222,12 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Die());
         }
     }
+
     private IEnumerator Die()
     {
+        playerCollider.gameObject.SetActive(false);
         rb.velocity = Vector3.zero;
+        playerDie = true;
         anim.Play("Die");
         while (!anim.GetCurrentAnimatorStateInfo(0).IsName("Die"))
         {

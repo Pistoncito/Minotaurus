@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Behaviour()
     {
-       StartCoroutine(SuicideAfter(3.0f));
+       //StartCoroutine(SuicideAfter(3.0f));
        GameObject player = GameManager.Instance_.player;
        while(alive)
         {
@@ -125,6 +125,15 @@ public class Enemy : MonoBehaviour
         {
             //daña al jugador
             GameManager.Instance_.player.GetComponent<PlayerMovement>().DealDamage(dmg_dealt);
+        }
+    }
+
+    public void DealDamage(float dmg)
+    {
+        hp -= dmg;
+        if(hp <= 0.0f)
+        {
+            alive = false;
         }
     }
 }
