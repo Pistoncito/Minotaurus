@@ -67,6 +67,7 @@
     <Compile Include="Assets\scripts\Level1\AxeCollider.cs" />
     <Compile Include="Assets\scripts\Level1\CameraBehaviour.cs" />
     <Compile Include="Assets\scripts\Level1\CollidersManager.cs" />
+    <Compile Include="Assets\scripts\Level1\Door.cs" />
     <Compile Include="Assets\scripts\Level1\Enemies\Enemy.cs" />
     <Compile Include="Assets\scripts\Level1\Enemies\EnemyScriptable.cs" />
     <Compile Include="Assets\scripts\Level1\GameManager.cs" />

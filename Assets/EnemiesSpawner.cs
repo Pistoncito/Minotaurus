@@ -75,7 +75,7 @@ public class EnemiesSpawner : MonoBehaviour
             //Seteamos todo lo que debe tener el enemigo
             SetEnemyValues(enemyKind, ref spawned);
             spawned.SetActive(true);
-            Debug.Log("SPAWN " + spawned.name);
+            //Debug.Log("SPAWN " + spawned.name);
             return spawned;
         }
 

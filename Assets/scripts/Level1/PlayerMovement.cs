@@ -239,6 +239,7 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         GameManager.Instance_.endOfGame = true;
+        GameManager.Instance_.change_scene();
     }
 
 

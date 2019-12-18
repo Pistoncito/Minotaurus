@@ -45,7 +45,8 @@ public class GameManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     //Score
     [SerializeField] private Text text_points;
-    private int points;
+    [HideInInspector]
+    public int points;
 
     Vector3 playerDirection = Vector3.zero;
     public void OnReleaseMoveCallback(int move)
@@ -187,12 +188,14 @@ public class GameManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         bc.center += new Vector3(0,0, bc.size.z * 0.5f);
 
         player.GetComponent<PlayerMovement>().playerCollider = bc;
+        Physics.IgnoreCollision(bc, player.GetComponent<PlayerMovement>().axeCollider);
     }
 
     //Cambiar a escena Scoreboard
 
     public void change_scene()
     {
+        StopAllCoroutines();
         SceneManager.LoadScene(2); //Cambia a la escena 2, Scoreboard
     }
     public void AddScore(int score)

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Worm
   m_EditorClassIdentifier: 
   name: Worm
-  dmg_dealt: 1
+  dmg_dealt: 3
   score_given: 400
-  hp: 6
+  hp: 2
   speed: 10
   attack_range: 0.5
   sprite: {fileID: -1995722259260045329, guid: d6d2f4beec4698543b5fb00ea6e2c5b2, type: 3}

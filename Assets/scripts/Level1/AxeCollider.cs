@@ -9,11 +9,12 @@ public class AxeCollider : MonoBehaviour
     void Start()
     {
         playerScript = GameManager.Instance_.player.GetComponent<PlayerMovement>();
-        Physics.IgnoreCollision(playerScript.playerCollider, this.GetComponent<Collider>());
+        //Physics.IgnoreCollision(playerScript.playerCollider, this.GetComponent<SphereCollider>());
     }
     private void OnEnable()
-    {  
-
+    {
+        //playerScript = GameManager.Instance_.player.GetComponent<PlayerMovement>();
+        //Physics.IgnoreCollision(playerScript.playerCollider, this.GetComponent<SphereCollider>());
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -21,7 +22,8 @@ public class AxeCollider : MonoBehaviour
         Collider c = collision.collider;
         if (c.tag == "enemy")
         {
-            c.GetComponent<Enemy>().DealDamage(playerScript.attack_dmg);
+            Enemy e = c.GetComponent<Enemy>();
+            e.DealDamage(playerScript.attack_dmg);
         }
     }
 

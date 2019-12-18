@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rat
   m_EditorClassIdentifier: 
   name: Rat
-  dmg_dealt: 2
+  dmg_dealt: 1
   score_given: 100
   hp: 3
   speed: 30
