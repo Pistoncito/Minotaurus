@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -186,5 +187,11 @@ public class GameManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         bc.center += new Vector3(0,0, bc.size.z * 0.5f);
     }
 
+    //Cambiar a escena Scoreboard
+
+    public void change_scene()
+    {
+        SceneManager.LoadScene(2); //Cambia a la escena 2, Scoreboard
+    }
 
 }
