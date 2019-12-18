@@ -88,7 +88,8 @@ public class Enemy : MonoBehaviour
         {
             yield return null;
         }
-        Debug.Log("MUERE " + this.name);
+        //Debug.Log("MUERE " + this.name);
+        GameManager.Instance_.AddScore(score_given);
         //yield return (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f);
         spawnerReference.RecycleEnemy(this.gameObject);
     }

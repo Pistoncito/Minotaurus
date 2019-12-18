@@ -16,14 +16,15 @@ public class AxeCollider : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(other.tag == "enemy")
+        Collider c = collision.collider;
+        if (c.tag == "enemy")
         {
-            Debug.Log("Collide with enemy");
-            other.GetComponent<Enemy>().DealDamage(playerScript.attack_dmg);
+            c.GetComponent<Enemy>().DealDamage(playerScript.attack_dmg);
         }
     }
+
     // Update is called once per frame
     void Update()
     {

@@ -135,6 +135,7 @@ MonoBehaviour:
   hp: 0
   speed: 0
   attack_range: 0
+  spawnerReference: {fileID: 0}
 --- !u!65 &8210438264843364987
 BoxCollider:
   m_ObjectHideFlags: 0

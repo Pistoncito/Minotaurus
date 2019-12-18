@@ -126,7 +126,7 @@ public class EnemiesSpawner : MonoBehaviour
         go.transform.position = this.transform.position;
         go.transform.localPosition = Vector3.zero;
 
-        Debug.Log("Removed " + go.name + "?: "+  enemiesSpawned.Remove(go));
+        //Debug.Log("Removed " + go.name + "?: "+  enemiesSpawned.Remove(go));
         go.SetActive(false);
         go.transform.parent = this.transform.parent;
         enemyPool.Push(go);

@@ -195,5 +195,9 @@ public class GameManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         SceneManager.LoadScene(2); //Cambia a la escena 2, Scoreboard
     }
-
+    public void AddScore(int score)
+    {
+        points += score;
+        text_points.text = points.ToString();
+    }
 }
